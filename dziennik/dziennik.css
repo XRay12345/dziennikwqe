@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2; /* kolor tła */
+}
+
+.header {
+    background-color: #4A76A8; /* kolor tła nagłówka (styl VK) */
+    color: #fff; /* kolor tekstu */
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* tło dla zawartości (białe) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* cień */
+}
+
+.container ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.container ul li {
+    margin: 0 10px;
+    list-style: none;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4A76A8; /* kolor przycisku (styl VK) */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #3B5A7A; /* ciemniejszy kolor przycisku po najechaniu (styl VK) */
+}

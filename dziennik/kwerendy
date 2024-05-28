@@ -1,0 +1,37 @@
+SELECT MIN(Data) AS NajwczesniejszaLekcja
+FROM plan_lekcji;
+SELECT MAX(Data) AS OstatniaLekcja
+FROM plan_lekcji;
+SELECT SUM(TIME_TO_SEC(Godzina)) AS ŁącznyCzasLekcji
+FROM plan_lekcji;
+SELECT COUNT(*) AS LiczbaLekcji
+FROM plan_lekcji;
+SELECT pl.ID_lekcji, k.Nazwa AS NazwaKlasy, n.Imie AS ImieNauczyciela, pl.Data, pl.Godzina
+FROM plan_lekcji pl
+JOIN klasy k ON pl.ID_klasy = k.ID_klasy
+JOIN nauczyciele n ON pl.ID_nauczyciela = n.ID_nauczyciela;
+SELECT Imie, Nazwisko FROM uczniowie WHERE ID_klasy = 1
+UNION
+SELECT Imie, Nazwisko FROM uczniowie WHERE ID_klasy = 2;
+SELECT AVG(TIME_TO_SEC(Godzina)) AS ŚredniCzasLekcji
+FROM plan_lekcji;
+SELECT * FROM plan_lekcji
+LIMIT 5;
+SELECT ID_nauczyciela, COUNT(*) AS LiczbaLekcji
+FROM plan_lekcji
+GROUP BY ID_nauczyciela
+HAVING COUNT(*) > 5;
+SELECT * FROM plan_lekcji
+WHERE nazwa_lekcji LIKE '%Matematyka%';
+SELECT * FROM plan_lekcji
+WHERE EXISTS (
+    SELECT 1 FROM plan_lekcji WHERE ID_lekcji = 10
+);
+INSERT INTO plan_lekcji (ID_klasy, ID_nauczyciela, ID_kursu, Data, Godzina, Typ_lekcji, nazwa_lekcji)
+VALUES (1, 2, 3, '2024-05-01', '09:00:00', 'Lecture', 'Chemistry');
+CREATE TABLE kursy (
+    ID_kursu INT AUTO_INCREMENT PRIMARY KEY,
+    NazwaKursu VARCHAR(100),
+    Opis TEXT
+);
+GRANT SELECT ON plan_lekcji TO 'nowy_uzytkownik'@'localhost';
